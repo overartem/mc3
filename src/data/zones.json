@@ -1,0 +1,36 @@
+{
+  "zones": {
+    "1": {
+      "name": "The Bridge"
+    },
+    "2": {
+      "name": "Soul Chamber"
+    },
+    "3": {
+      "name": "Living Forest"
+    },
+    "4": {
+      "name": "Evil Tower"
+    },
+    "5": {
+      "name": "Wastelands of Outworld"
+    }
+  },
+  "asdas": {
+    "1": {
+      "name": "The Bridge"
+    },
+    "2": {
+      "name": "Soul Chamber"
+    },
+    "3": {
+      "name": "Living Forest"
+    },
+    "4": {
+      "name": "Evil Tower"
+    },
+    "5": {
+      "name": "Wastelands of Outworld"
+    }
+  }
+}

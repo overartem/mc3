@@ -1,0 +1,22 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "_variables.css";
+@import "./hero-list.css";
+@import "./versus.css";
+
+body {
+  background: #000;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Carter One", cursive;
+  color: #fff;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.container {
+  @apply max-w-4xl;
+}

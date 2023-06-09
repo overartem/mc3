@@ -1,0 +1,22 @@
+.select-page {
+  background: url("../images/bg.jpg") no-repeat center center fixed;
+
+  .hero-list-wrapper {
+    .hero-list {
+      @apply text-sm;
+
+      li {
+        @apply bg-[var(--theme-grey2)] relative text-center border border-[10px] border-[var(--theme-grey)] pointer-events-none;
+
+        &:active,
+        &.active {
+          @apply pointer-events-none border-green-600 text-green-400 after:content-['1'] after:absolute after:top-1/2 after:left-1/2 after:text-6xl after:-translate-y-1/2 after:-translate-x-1/2;
+        }
+      }
+
+      img {
+        @apply w-full pointer-events-none;
+      }
+    }
+  }
+}

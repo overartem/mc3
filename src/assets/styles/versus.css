@@ -1,0 +1,13 @@
+.versus-page {
+  background: #000;
+
+  .versus-container {
+    background: url("../images/bg.jpg") no-repeat center center fixed;
+
+    .kombat-code {
+      li {
+        @apply border border-[5px] border-[var(--theme-grey)];
+      }
+    }
+  }
+}
