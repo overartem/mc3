@@ -1,11 +1,9 @@
-import Selections from "components/pages/Selections/Selections";
-// import Versus from "components/pages/Versus/Versus";
+import ScreenLayout from "components/pages/Layout/ScreenLayout";
 
 function App() {
   return (
     <>
-      <Selections />
-      {/* <Versus /> */}
+      <ScreenLayout />
     </>
   );
 }
