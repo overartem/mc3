@@ -1,6 +1,6 @@
 export interface IHeroState {
   current: number;
-  heroActiveID: number;
+  heroActiveID?: number;
 }
 
 export interface IHeroes {
@@ -25,3 +25,18 @@ export interface IZone {
     name: string;
   };
 }
+
+export interface ICodes {
+  [key: string]: ICode;
+}
+
+export interface ICode {
+  [key: string]: ICodeItem;
+}
+
+export interface ICodeItem {
+  id: number;
+  code: number | string;
+  name: string;
+}
+

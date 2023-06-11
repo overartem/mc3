@@ -1,22 +1,18 @@
 import useBodyClass from "hooks/useBodyClass";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { getZone, currentItem } from "utils/game";
+import { useEffect, useMemo, useState } from "react";
+import { getZone, currentHeroItem } from "utils/game";
 import Heroes from "data/heroes.json";
 import Zones from "data/zones.json";
 import { IHeroItem, IHeroState, IHeroes } from "types/model";
 
-export default function Selections({ activeScreenSet }: { activeScreenSet: (e: boolean) => void }): JSX.Element {
+export default function Selections({ nextScreenInit }: { nextScreenInit: (e: Record<string, number>) => void }): JSX.Element {
   useBodyClass("select-page");
-  const [activeHero, setActiveHero] = useState<IHeroState>({
-    current: 1,
-    heroActiveID: 1,
-  });
+  const [activeHero, setActiveHero] = useState<IHeroState>({ current: 1 });
   const [lockHero, setLockHero] = useState<boolean>(false);
   const heroes: IHeroItem[] = useMemo(() => {
     const heroData: IHeroes = Heroes;
     return Object.values(heroData.heroes);
   }, []);
-  const heroActiveID = useRef<number>(activeHero.current);
   const gameZone = useMemo(() => {
     return getZone(Zones);
   }, []);
@@ -42,22 +38,26 @@ export default function Selections({ activeScreenSet }: { activeScreenSet: (e: b
           break;
       }
     };
+
     window.addEventListener("keydown", handleKeyDown);
+
     const selectedHero = (event: string): void => {
-      setActiveHero((prevIndex) => currentItem(prevIndex, event, heroes, heroActiveID.current));
+      setActiveHero((prevIndex) => currentHeroItem(prevIndex, event, heroes));
     };
+
     const setSelectedHero = () => {
       window.removeEventListener("keydown", handleKeyDown);
       setLockHero(true);
-      activeScreenSet(true);
+      nextScreenInit({ idActiveHero: activeHero.current });
     };
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [heroes]);
+  }, [heroes, activeHero]);
   return (
     <>
+      {console.log("rerender Selections")}
       <div className='select-container relative mx-auto max-w-7xl py-12 flex flex-wrap flex-col items-center justify-between min-h-screen'>
         <h1 className='text-6xl uppercase italic tracking-widest text-center'>Select Your Fighter</h1>
         <div className='hero-list-wrapper container'>
@@ -65,8 +65,9 @@ export default function Selections({ activeScreenSet }: { activeScreenSet: (e: b
             {heroes.map((hero, index) => (
               <li
                 key={hero.id}
+                data-hero-id={hero.id}
                 className={`${activeHero.current === index + 1 ? "active" : ""} ${
-                  lockHero && activeHero.heroActiveID === index + 1 ? "locked" : ""
+                  lockHero && activeHero.current === index + 1 ? "locked" : ""
                 }`}
               >
                 <img src={`${imagePath}/heroes/${hero.id}.jpg`} alt={`Hero ${hero.name}`} />

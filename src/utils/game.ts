@@ -10,7 +10,7 @@ export const getZone = (data: IZones): string => {
   return randomItem;
 };
 
-export const currentItem = (prevIndex: IHeroState, event: string, heroes: IHeroItem[], heroActiveID: number) => {
+export const currentHeroItem = (prevIndex: IHeroState, event: string, heroes: IHeroItem[]) => {
   let current = prevIndex.current;
   const numberHeroesRows = heroes?.length / ITEM_HEROES_IN_ROW - 1;
   if (event === "ArrowRight") {
@@ -26,6 +26,11 @@ export const currentItem = (prevIndex: IHeroState, event: string, heroes: IHeroI
     const remainder = (prevIndex.current - ITEM_HEROES_IN_ROW) % heroes.length;
     current = remainder <= 0 ? prevIndex.current + ITEM_HEROES_IN_ROW * numberHeroesRows : remainder;
   }
-  heroActiveID = current;
-  return { current, heroActiveID };
+  return { ...prevIndex, current };
+};
+
+export const checkKeyboardLayout = (key: string, code: string) => {
+  if (code.startsWith("Key") && /[а-яА-Я]/.test(key)) {
+    alert("Please change the keyboard to the Latin character");
+  }
 };

@@ -1,0 +1,56 @@
+{
+  "codes": {
+    "0": {
+      "id": 0,
+      "code": 0,
+      "name": "Code 1"
+    },
+    "1": {
+      "id": 1,
+      "code": 1,
+      "name": "Code 2"
+    },
+    "2": {
+      "id": 2,
+      "code": 2,
+      "name": "Code 3"
+    },
+    "3": {
+      "id": 3,
+      "code": 3,
+      "name": "Code 4"
+    },
+    "4": {
+      "id": 4,
+      "code": 4,
+      "name": "Code 5"
+    },
+    "5": {
+      "id": 5,
+      "code": 5,
+      "name": "Code 6"
+    },
+    "6": {
+      "id": 6,
+      "code": 6,
+      "name": "Code 7"
+    },
+    "7": {
+      "id": 7,
+      "code": 7,
+      "name": "Code 8"
+    }
+  },
+  "wincodes": {
+    "0": {
+      "id": 0,
+      "code": "444444",
+      "name": "Wincode #1"
+    },
+    "1": {
+      "id": 0,
+      "code": "876543",
+      "name": "Wincode #2"
+    }
+  }
+}
