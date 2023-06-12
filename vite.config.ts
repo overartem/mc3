@@ -1,14 +1,15 @@
+import dotenv from "dotenv";
 import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
-import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
-import dotenv from "dotenv";
+
 import replace from "@rollup/plugin-replace";
+import react from "@vitejs/plugin-react";
 
 const env = dotenv.config().parsed;
 const isProduction = process.env.NODE_ENV === "production";
-console.log(isProduction);
 const port = isProduction ? parseInt(process.env.PORT) : parseInt(process.env.PORT_DEV);
+console.log(port);
 export default defineConfig({
   // root: "./src",
   build: {

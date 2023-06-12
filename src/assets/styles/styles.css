@@ -4,6 +4,7 @@
 @import "_variables.css";
 @import "./hero-list.css";
 @import "./versus.css";
+@import "./plugins/firework.css"; 
 
 body {
   background: #000;

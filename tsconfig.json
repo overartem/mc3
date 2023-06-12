@@ -12,15 +12,17 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "allowSyntheticDefaultImports":true,
+    "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-     "components/*": ["components/*"],
-     "hooks/*": ["hooks/*"],
-     "assets/*": ["assets/*"],
-     "data/*": ["data/*"],
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "assets/*": ["assets/*"],
+      "data/*": ["data/*"],
+      "utils/*": ["utils/*"],
+      "constants/*": ["constants/*"]
     },
 
     /* Linting */

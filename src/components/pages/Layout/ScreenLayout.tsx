@@ -1,31 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+
 import Selections from "../Selections/Selections";
 import Versus from "../Versus/Versus";
 
+import { MS_FOR_CHANGE_SCREEN } from "constants/settings";
+
 function ScreenLayout(): JSX.Element {
   const [isActiveScreen, setIsActiveScreen] = useState<boolean>(false);
-  const selectedHeroId = useRef<number | null>(null);
-  useEffect(() => {
-    /*   const timer = setTimeout(() => {
-      setIsActiveScreen(false);
-      console.log("Таймаут завершився");
-    }, 2000); */
+  const selectedHeroId = useRef<number>(0);
 
-    return () => {
-      // clearTimeout(timer);
-    };
-  }, []);
+  const goNextScreen = (obj: number) => {
+    if (!obj) {
+      console.error("Next ScreenInit id is null or undefined");
+      return;
+    }
+    selectedHeroId.current = obj;
 
-  const goNextScreen = (obj: Record<string, number>) => {
     setTimeout(() => {
-      selectedHeroId.current = obj?.idActiveHero;
       setIsActiveScreen(true);
-    }, 2000);
+    }, MS_FOR_CHANGE_SCREEN);
   };
 
   return (
     <>
-      {console.log("rerender ScreenLayout")}
       {isActiveScreen ? (
         <Versus selectedHeroId={selectedHeroId.current} />
       ) : (

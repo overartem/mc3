@@ -34,3 +34,8 @@ export const checkKeyboardLayout = (key: string, code: string) => {
     alert("Please change the keyboard to the Latin character");
   }
 };
+
+export const playAudio = (audioElement: HTMLAudioElement | null, action: string) => {
+  if (audioElement && action === "play") audioElement.play();
+  if (audioElement && action === "pause") audioElement.pause();
+};
