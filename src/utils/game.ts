@@ -1,5 +1,6 @@
-import { ITEM_HEROES_IN_ROW } from "constants/settings";
 import { IZones, IZone, IHeroState, IHeroItem } from "types/model";
+
+import { ITEM_HEROES_IN_ROW } from "constants/settings";
 
 export const getZone = (data: IZones): string => {
   const arr: IZone[] = Object.values(data);
@@ -26,7 +27,9 @@ export const currentHeroItem = (prevIndex: IHeroState, event: string, heroes: IH
     const remainder = (prevIndex.current - ITEM_HEROES_IN_ROW) % heroes.length;
     current = remainder <= 0 ? prevIndex.current + ITEM_HEROES_IN_ROW * numberHeroesRows : remainder;
   }
-  return { ...prevIndex, current };
+
+  const activeUser = !prevIndex.user1.status ? "user1" : "user2";
+  return { ...prevIndex, current, [activeUser]: { ...prevIndex[activeUser], position: current } };
 };
 
 export const checkKeyboardLayout = (key: string, code: string) => {

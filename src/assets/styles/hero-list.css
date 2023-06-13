@@ -6,25 +6,52 @@
       @apply text-sm;
 
       li {
-        @apply bg-white relative text-center border border-[10px] border-[var(--theme-grey)] pointer-events-none;
+        @apply bg-white relative text-center border border-[10px] border-[var(--theme-grey)] pointer-events-none after:content-normal after:absolute after:top-1/2 after:left-1/2 after:text-6xl after:-translate-y-1/2 after:-translate-x-1/2;
 
         &:active,
         &.active {
-          @apply pointer-events-none text-green-400 after:content-['1'] after:absolute after:top-1/2 after:left-1/2 after:text-6xl after:-translate-y-1/2 after:-translate-x-1/2;
+          @apply pointer-events-none;
 
-          animation: borderActive 0.1s infinite;
+          /* animation: borderActive 0.1s infinite; */
+
+          &.user1 {
+            @apply border-[var(--theme-green)] text-green-400 after:content-['1'];
+
+            animation: borderActive 0.1s infinite;
+          }
+
+          &.user2 {
+            @apply border-red-500 text-red-500 after:content-['2'];
+
+            animation: borderRedActive 0.1s infinite;
+          }
         }
 
         &.locked {
           img {
             animation: glow 0.3s 3;
           }
-          animation: borderDactive 1s 1;
+
+          &.user1 {
+            @apply border-[var(--theme-green)] text-green-400 after:content-['1'];
+            animation: borderDactive 1s 1;
+          }
+
+          &.user2 {
+            @apply border-red-500 text-red-500 after:content-['2'];
+            animation: borderRedDactive 1s 1;
+          }
         }
 
         @keyframes borderDactive {
           100% {
-            border-color: rgb(34, 197, 94);
+            border-color: var(--theme-green);
+          }
+        }
+
+        @keyframes borderRedDactive {
+          100% {
+            @apply border-red-500;
           }
         }
 
@@ -33,10 +60,25 @@
             border-color: var(--theme-grey);
           }
           50% {
-            border-color: rgb(34, 197, 94);
+            border-color: var(--theme-green);
           }
           80% {
-            border-color: rgb(34, 197, 94);
+            border-color: var(--theme-green);
+          }
+          100% {
+            border-color: var(--theme-grey);
+          }
+        }
+
+        @keyframes borderRedActive {
+          0% {
+            border-color: var(--theme-grey);
+          }
+          50% {
+            @apply border-red-500;
+          }
+          80% {
+            @apply border-red-500;
           }
           100% {
             border-color: var(--theme-grey);

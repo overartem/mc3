@@ -2,7 +2,7 @@ import { playAudio } from "utils/game";
 
 import AudioBlock from "../Audio/AudioBlock";
 
-function Surprise({ winResult, type }: { winResult: string; type: string }): JSX.Element {
+function Surprise({ type }: { type: string }): JSX.Element {
   let audioElement: HTMLAudioElement | null = null;
   let surprise = "fireworks";
 
@@ -13,6 +13,7 @@ function Surprise({ winResult, type }: { winResult: string; type: string }): JSX
     }
     audioElement = el;
   };
+  
   if (type === "music") {
     surprise = type;
     playAudio(audioElement, "play");
@@ -20,7 +21,7 @@ function Surprise({ winResult, type }: { winResult: string; type: string }): JSX
   return (
     <>
       {surprise === "fireworks" ? (
-        <div className={`pyro ${winResult === "win" ? "block" : "hidden"}`}>
+        <div className='pyro'>
           <div className='before'></div>
           <div className='after'></div>
         </div>

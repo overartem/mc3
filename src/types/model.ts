@@ -1,6 +1,14 @@
+
 export interface IHeroState {
   current: number;
+  user1: IHeroUser;
+  user2: IHeroUser;
   heroActiveID?: number;
+}
+
+export interface IHeroUser {
+  position: number;
+  status: boolean;
 }
 
 export interface IHeroes {
@@ -39,4 +47,3 @@ export interface ICodeItem {
   code: number | string;
   name: string;
 }
-

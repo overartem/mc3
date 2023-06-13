@@ -7,14 +7,14 @@ import { MS_FOR_CHANGE_SCREEN } from "constants/settings";
 
 function ScreenLayout(): JSX.Element {
   const [isActiveScreen, setIsActiveScreen] = useState<boolean>(false);
-  const selectedHeroId = useRef<number>(0);
+  const selectedHeroesId = useRef<Record<string, number>>({});
 
-  const goNextScreen = (obj: number) => {
+  const goNextScreen = (obj: Record<string, number>) => {
     if (!obj) {
       console.error("Next ScreenInit id is null or undefined");
       return;
     }
-    selectedHeroId.current = obj;
+    selectedHeroesId.current = obj;
 
     setTimeout(() => {
       setIsActiveScreen(true);
@@ -24,7 +24,7 @@ function ScreenLayout(): JSX.Element {
   return (
     <>
       {isActiveScreen ? (
-        <Versus selectedHeroId={selectedHeroId.current} />
+        <Versus selectedHeroesId={selectedHeroesId.current} />
       ) : (
         <Selections
           nextScreenInit={(obj) => {

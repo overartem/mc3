@@ -10,7 +10,7 @@ import { checkKeyboardLayout, playAudio } from "utils/game";
 
 import { CODE_NAV_KEYS, MS_TO_CHECK_COMBAT_CODE, WIN_FAIL_CODE, WIN_SUCCESS_CODE } from "constants/settings";
 
-export default function Versus({ selectedHeroId }: { selectedHeroId: number }): JSX.Element {
+export default function Versus({ selectedHeroesId }: { selectedHeroesId: Record<string, number> }): JSX.Element {
   useBodyClass("versus-page");
   const [currentImages, setCurrentImages] = useState<ICode>({});
   const [winResult, setWinResult] = useState({
@@ -26,9 +26,8 @@ export default function Versus({ selectedHeroId }: { selectedHeroId: number }): 
   const imagePath = `${process.env.PUBLIC_URL}/assets`;
   let audioElement: HTMLAudioElement | null = null;
   currentImagesFresh.current = currentImages;
-
+  
   useEffect(() => {
-    console.log("VERSUS useEffect");
     playAudio(audioElement, "play");
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -51,7 +50,6 @@ export default function Versus({ selectedHeroId }: { selectedHeroId: number }): 
           },
         };
       });
-      console.log("reload handleKeyDown");
     };
 
     const getWinResult = () => {
@@ -106,10 +104,14 @@ export default function Versus({ selectedHeroId }: { selectedHeroId: number }): 
         <img src={vs} alt='vs logo' className='w-[100px] absolute top-[30%]' />
         <div className='hero-vs flex justify-between w-full overflow-hidden'>
           <div className='pl1 pr-3'>
-            <img src={`${imagePath}/images/versus/${selectedHeroId}.png`} alt='first player' className='max-w-[500px]' />
+            <img src={`${imagePath}/images/versus/${selectedHeroesId.user1}.png`} alt='first player' className='max-w-[500px]' />
           </div>
           <div className='pls2 pl-3'>
-            <img src={`${imagePath}/images/versus/${1}.png`} alt='first player' className='max-w-[500px] -scale-x-100' />
+            <img
+              src={`${imagePath}/images/versus/${selectedHeroesId.user2}.png`}
+              alt='first player'
+              className='max-w-[500px] -scale-x-100'
+            />
           </div>
         </div>
         <div className='kombat-code'>
@@ -123,7 +125,7 @@ export default function Versus({ selectedHeroId }: { selectedHeroId: number }): 
             })}
           </ul>
         </div>
-        {winResult.type === WIN_SUCCESS_CODE && <Surprise winResult={winResult.type} type={winResult.surprise} />}
+        {winResult.type === WIN_SUCCESS_CODE && <Surprise type={winResult.surprise} />}
       </div>
       <AudioBlock audioEl={(el) => getAudioElement(el)} trackName={"versus"} type={winResult.type} />
     </>
