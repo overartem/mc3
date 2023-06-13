@@ -47,3 +47,6 @@ KOMBAT ZONE - рандомно будуть змінюватися при кож
 
 ![Іллюстрація до проєкту](https://i.imgur.com/OQzgypQ.png)
 ![Іллюстрація до проєкту](https://i.imgur.com/kTm6M3c.png)
+![Іллюстрація до проєкту](https://i.imgur.com/L2usJZC.jpg)
+![Іллюстрація до проєкту](https://i.imgur.com/xc4lLas.jpg)
+![Іллюстрація до проєкту](https://i.imgur.com/sDdYY4W.jpg)
