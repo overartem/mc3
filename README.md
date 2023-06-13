@@ -1,4 +1,24 @@
 # mc3
+
+### Зібрано на Vite
+
++ TypeScript,
++ Reactjs,
++ postcss,
++ tailwind etc
+
+------------
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm run dev` :tada:
+or
+### `npm run build`
+or but before you have to run build
+### `npm run preview` 
+
 ------------
 
 Навігація по героям працює з любою кількістью героїв але потрібно в конфіг 'ITEM_HEROES_IN_ROW' передати кількість героїв в рядку, на майбутнє цю цифру також можна буде вираховувати автоматично.
