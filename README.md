@@ -7,7 +7,7 @@
 + postcss,
 + tailwind etc
 
-------------
+------Так це мій аккаунт------
 
 ## Available Scripts
 
