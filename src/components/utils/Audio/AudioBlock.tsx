@@ -16,10 +16,13 @@ function AudioBlock({
     audioEl(audioElement);
   }, [audioEl, audioElement]);
 
-  if (type === "fail") {
-    trackName = "fail";
-    loop = false;
+   useEffect(() => {
+     if (type === "fail") {
+     trackName = "fail";
+     loop = false;
   }
+  }, [trackName, type]);
+
   return (
     <>
       <audio
